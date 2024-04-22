@@ -27,3 +27,11 @@ def blog():
     ]
 
     return render_template("blog.html", entradas_blog=entradas_blog)
+
+@app.route("/historial")
+def historial():
+    return render_template("historialMedico.html")
+
+@app.route("/consultas")
+def consultas():
+    return render_template("consultasEvaluaciones.html")

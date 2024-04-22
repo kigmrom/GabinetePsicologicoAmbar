@@ -18,6 +18,8 @@
                         <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href="/contacto">Contacto</a></li>
                         <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/historial">Historial</a></li>
+                        <li class="nav-item"><a href="/consultas">Consultas y evaluaciones</a></li>
                     </ul>
                 </nav>
             </div>
@@ -29,7 +31,7 @@
             <div class="row">
                 <div class="col-md-6 offset-md-3">
                     <div class="login-logos">
-                        <img src="logo_ambar.png" alt="Logo de Ambar" class="img-fluid">
+                        <img src="{{ url_for('static', filename='images/logoAmbar.jpeg') }}" alt="Logo de Ambar" class="img-fluid">
                     </div>
                     <p class="login-slogan">El comienzo está contigo</p> <h2>Acceso al Gabinete Psicológico</h2> <form action="/login" method="post">
                         <div class="form-group">
