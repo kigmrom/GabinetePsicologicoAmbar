@@ -3,18 +3,103 @@
 {% block title %} Pacientes || Gabinete Psicológico Ámbar {% endblock %}
 {% block title2 %} Lista de Pacientes {% endblock %}
 {% block contenido %}
+<!-- Botón para mostrar el formulario emergente -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Añadir Nuevo Paciente
+</button>
+
+<hr>
+<!-- Modal para el formulario emergente -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
+        <div class="modal-content rounded-0">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Añadir Nuevo Paciente</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Aquí irá tu formulario para añadir un nuevo empleado -->
+                <form id="nuevoEmpleadoForm" method="POST" action="/agregar_paciente">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="codigo">Codigo:</label>
+                                <input type="text" class="form-control" id="codigo" name="codigo">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="nombre">Nombre:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombre">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="apellido">Apellidos:</label>
+                                <input type="text" class="form-control" id="apellido" name="apellido">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="direccion">Dirección:</label>
+                                <input type="text" class="form-control" id="direccion" name="direccion">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="telefono">Telefono:</label>
+                                <input type="text" class="form-control" id="telefono" name="telefono">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="genero">Genero:</label>
+                                <select class="form-control" id="genero" name="genero">
+                                    <option value="Femenino">Femenino</option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Otro">Otro</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+                                <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="cedula_identidad">Cedula de Identidad:</label>
+                                <input type="text" class="form-control" id="cedula_identidad" name="cedula_identidad">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Añadir Paciente</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 <table class="table table-striped">
     <thead>
         <tr>
             <th scope="col">Código</th>
             <th scope="col">Nombre</th>
-            <th scope="col">Apellido</th>
+            <th scope="col">Apellidos</th>
             <th scope="col">Fecha de Nacimiento</th>
             <th scope="col">Género</th>
             <th scope="col">Dirección</th>
             <th scope="col">Teléfono</th>
-            <th scope="col">Cédula de Identidad</th>
+            <th scope="col">Cédula de Identidad</th>            
+            <th scope="col">Modificar</th>
         </tr>
     </thead>
     <tbody>
@@ -28,6 +113,7 @@
             <td>{{ paciente.direccion }}</td>
             <td>{{ paciente.telefono }}</td>
             <td>{{ paciente.cedula_identidad }}</td>
+            <td><a class="btn btn-primary" href="http://">Editar</a></td>
         </tr>
         {% endfor %}
     </tbody>

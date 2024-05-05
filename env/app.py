@@ -67,29 +67,6 @@ def welcome():
     tipo_usuario = session.get('tipo_usuario')
     return render_template("welcome.html", tipo_usuario=tipo_usuario)
 
-
-@app.route("/contacto", methods=["GET", "POST"])
-def contacto():
-    if request.method == "GET":
-        return render_template("contacto.html")
-    else:
-        nombre = request.form["nombre"]
-        correo = request.form["correo"]
-        mensaje = request.form["mensaje"]
-
-        # Procesar la información del formulario
-
-        return render_template("contacto.html", mensaje_enviado=True)
-
-@app.route("/blog")
-def blog():
-    entradas_blog = [
-        {"titulo": "Entrada 1", "contenido": "Texto de la entrada 1"},
-        {"titulo": "Entrada 2", "contenido": "Texto de la entrada 2"},
-    ]
-
-    return render_template("blog.html", entradas_blog=entradas_blog)
-
 @app.route("/historial")
 @login_required
 def historial():
@@ -98,11 +75,37 @@ def historial():
 @app.route("/pacientes")
 @login_required
 def pacientes():
-    cursor = db.cursor()
+    tipo_usuario = session.get('tipo_usuario')
+    cursor = db.cursor(dictionary=True)
     cursor.execute("SELECT * FROM paciente")
     pacientes = cursor.fetchall()
     cursor.close()
-    return render_template("pacientes.html", pacientes=pacientes)
+    return render_template("pacientes.html", pacientes=pacientes, tipo_usuario=tipo_usuario)
+
+@app.route("/agregar_paciente", methods=["POST"])
+@login_required
+def agregar_paciente():
+    codigo = request.form["codigo"]
+    nombre = request.form["nombre"]
+    apellido = request.form["apellido"]
+    fecha_nacimiento = request.form["fecha_nacimiento"]
+    genero = request.form["genero"]
+    direccion = request.form["direccion"]
+    telefono = request.form["telefono"]
+    cedula_identidad = request.form["cedula_identidad"]
+
+    # Validaciones adicionales en el lado del servidor
+    if not codigo or not nombre or not apellido or not fecha_nacimiento or not genero or not direccion or not telefono or not cedula_identidad:
+        return "Todos los campos son obligatorios", 400  # Código de estado 400 para indicar un error de solicitud
+
+    # Lógica para agregar el empleado a la base de datos
+    # Por ejemplo:
+    cursor = db.cursor()
+    cursor.execute("INSERT INTO paciente (codPaciente, nombre, apellido, fecha_nacimiento, genero, direccion, telefono, cedula_identidad) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)", (codigo, nombre, apellido, fecha_nacimiento, genero, direccion, telefono, cedula_identidad))
+    db.commit()
+    cursor.close()
+
+    return redirect(url_for("pacientes"))  # Redirigir a la página de contratar después de agregar el empleado
 
 @app.route("/contratar")
 @login_required
@@ -134,13 +137,12 @@ def agregar_empleado():
 
     # Lógica para agregar el empleado a la base de datos
     # Por ejemplo:
-    # cursor = db.cursor()
-    # cursor.execute("INSERT INTO personal (codigo, nombre, apellido, correo, telefono, profesion, especialidad, sueldo) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)", (codigo, nombre, apellido, correo, telefono, profesion, especialidad, sueldo))
-    # db.commit()
-    # cursor.close()
+    cursor = db.cursor()
+    cursor.execute("INSERT INTO personal (codPersonal, nombre, apellido, correo, telefono, profesion, especialidad, sueldo) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)", (codigo, nombre, apellido, correo, telefono, profesion, especialidad, sueldo))
+    db.commit()
+    cursor.close()
 
     return redirect(url_for("contratar"))  # Redirigir a la página de contratar después de agregar el empleado
-
 
 @app.route("/consultas")
 @login_required
