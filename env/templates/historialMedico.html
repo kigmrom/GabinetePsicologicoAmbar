@@ -3,45 +3,58 @@
 {% block title %} Historial|| Gabinete Psicológico Ámbar {% endblock %}
 {% block title2 %} Historial de Pacientes {% endblock %}
 {% block contenido %}
-<div class="container-fluid">
-        <h2 class="mb-4">Buscar Paciente</h2>
-        <form class="form-inline">
-          <div class="form-group mx-sm-3 mb-2">
+    <h2 class="mb-4">Buscar Paciente</h2>
+    <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2">
             <label for="nombrePaciente" class="sr-only">Nombre del Paciente</label>
             <input type="text" class="form-control" id="nombrePaciente" placeholder="Nombre o Apellido">
-          </div>
-          <button type="submit" class="btn btn-primary mb-2">Buscar</button>
-        </form>
-        <h3 class="mt-4">Lista de Pacientes Recientes</h3>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Buscar</button>
+    </form>
+    {% if pacientes %}
         <table class="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col">Nombre</th>
-              <th scope="col">Estado</th>
-              <th scope="col">Última Cita</th>
-              <th scope="col">Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Juan Pérez</td>
-              <td>Activo</td>
-              <td>2024-04-22</td>
-              <td>
-                <a href="#" class="btn btn-sm btn-info">Ver</a>
-                <a href="#" class="btn btn-sm btn-secondary">Editar</a>
-              </td>
-            </tr>
-            <tr>
-              <td>Ana García</td>
-              <td>Inactivo</td>
-              <td>2024-04-15</td>
-              <td>
-                <a href="#" class="btn btn-sm btn-info">Ver</a>
-              </td>
-            </tr>
-          </tbody>
+            <thead>
+                <tr>
+                    <th scope="col">Código de Paciente</th>
+                    <th scope="col">Nombre de Paciente</th>
+                    <th scope="col">Apellido de Paciente</th>
+                    <th scope="col">Historial Medico</th>
+                    <th scope="col">Evaluaciones</th>
+                    <th scope="col">Tratamientos</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for paciente in pacientes %}
+                    <tr>
+                        <td>{{ paciente.idpaciente }}</td>
+                        <td>{{ paciente.nombre_paciente }}</td>
+                        <td>{{ paciente.apellido_paciente }}</td>
+                        <td>
+                            {% if paciente.historial_medico %}
+                                {{ paciente.historial_medico }}
+                            {% else %}
+                                No hay historial médico
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if paciente.evaluaciones %}
+                                {{ paciente.evaluaciones }}
+                            {% else %}
+                                No hay evaluaciones
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if paciente.tratamientos %}
+                                {{ paciente.tratamientos }}
+                            {% else %}
+                                No hay tratamientos
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
         </table>
-      </main>
-    
+    {% else %}
+        <p>No se encontraron pacientes.</p>
+    {% endif %}
 {% endblock %}

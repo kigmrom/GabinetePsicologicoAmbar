@@ -49,11 +49,13 @@
                     <li class="nav-item">
                         <a href="/pacientes" class="nav-link">Pacientes</a>
                     </li>
+                    {% if tipo_usuario == 'usuario_normal' %}
                     <li class="nav-item">
                         <a href="#" class="nav-link">Agenda</a>
                     </li>
+                    {% endif %}
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Historial Médico</a>
+                        <a href="/historial" class="nav-link">Historial Médico</a>
                     </li>
                     {% if tipo_usuario == 'admin' %}
                     <li class="nav-item">

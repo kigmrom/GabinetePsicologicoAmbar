@@ -70,7 +70,31 @@ def welcome():
 @app.route("/historial")
 @login_required
 def historial():
-    return render_template("historialMedico.html")
+    tipo_usuario = session.get('tipo_usuario')
+    cursor = db.cursor(dictionary=True)
+    cursor.execute("""
+        SELECT 
+            p.idpaciente, 
+            p.nombre AS nombre_paciente, 
+            p.apellido AS apellido_paciente, 
+            GROUP_CONCAT(DISTINCT hm.codHistorialMedico) AS historial_medico, 
+            GROUP_CONCAT(DISTINCT CONCAT_WS(' - ', e.tipo_evaluacion, e.descripcion, e.precio)) AS evaluaciones,
+            GROUP_CONCAT(DISTINCT CONCAT_WS(' - ', t.nombre, t.tipo_tratamiento, t.descripcion, t.precio)) AS nombres_tratamiento 
+        FROM 
+            paciente p 
+        LEFT JOIN 
+            historialmedico hm ON p.idpaciente = hm.idpaciente 
+        LEFT JOIN 
+            evaluacion e ON p.idpaciente = e.idpaciente 
+        LEFT JOIN 
+            tratamiento t ON p.idpaciente = t.idpaciente 
+        GROUP BY 
+            p.idpaciente
+    """)
+    pacientes = cursor.fetchall()
+    cursor.close()
+    return render_template("historialMedico.html", pacientes=pacientes, tipo_usuario=tipo_usuario)
+
 
 @app.route("/pacientes")
 @login_required
