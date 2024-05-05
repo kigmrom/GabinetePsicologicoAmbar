@@ -11,8 +11,8 @@
 
 <!-- Modal para el formulario emergente -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
+        <div class="modal-content rounded-0">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Añadir Nuevo Empleado</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -22,46 +22,127 @@
             <div class="modal-body">
                 <!-- Aquí irá tu formulario para añadir un nuevo empleado -->
                 <form id="nuevoEmpleadoForm" method="POST" action="/agregar_empleado">
-                    <!-- Campos del formulario -->
-                    <div class="form-group">
-                        <label for="nombre">Codigo:</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="codigo">Codigo:</label>
+                                <input type="text" class="form-control" id="codigo" name="codigo">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="nombre">Nombre:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombre">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="apellido">Apellido:</label>
+                                <input type="text" class="form-control" id="apellido" name="apellido">
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="nombre">Nombre:</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="correo">Correo:</label>
+                                <input type="text" class="form-control" id="correo" name="correo">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="telefono">Telefono:</label>
+                                <input type="text" class="form-control" id="telefono" name="telefono">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="profesion">Profesion:</label>
+                                <select class="form-control" id="profesion" name="profesion">
+                                    <option value="Recepcionista">Recepcionista</option>
+                                    <option value="Psicologo">Psicologo</option>
+                                    <option value="Psicoterapeuta">Psicoterapeuta</option>
+                                    <option value="Psicopedagogo">Psicopedagogo</option>
+                                    <option value="Psiquiatra">Psiquiatra</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="nombre">Apellido:</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="especialidad">Especialidad:</label>
+                                <select class="form-control" id="especialidad" name="especialidad">
+                                    <!-- Opciones de especialidad se llenarán dinámicamente -->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="sueldo">Sueldo:</label>
+                                <input type="text" class="form-control" id="sueldo" name="sueldo">
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="nombre">Correo:</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre">
-                    </div>
-                    <div class="form-group">
-                        <label for="nombre">Telefono:</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre">
-                    </div>
-                    <div class="form-group">
-                        <label for="nombre">Profesion:</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre">
-                    </div>
-                    <div class="form-group">
-                        <label for="nombre">Especialidad:</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre">
-                    </div>
-                    <div class="form-group">
-                        <label for="nombre">Sueldo:</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre">
-                    </div>
-
                     <button type="submit" class="btn btn-primary">Añadir Empleado</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    // Función para actualizar las opciones de especialidad
+    function actualizarEspecialidad() {
+        var profesion = document.getElementById("profesion").value;
+        var especialidadSelect = document.getElementById("especialidad");
+        especialidadSelect.innerHTML = ""; // Limpiar las opciones anteriores
+        
+        // Agregar las opciones de especialidad según la profesión seleccionada
+        switch (profesion) {
+            case "Recepcionista":
+                // No se requiere especialidad
+                agregarOpcionEspecialidad("Ninguna", especialidadSelect);
+                break;
+            case "Psicologo":
+                agregarOpcionEspecialidad("Psicologia Clinica", especialidadSelect);
+                agregarOpcionEspecialidad("Psicologia Infantil", especialidadSelect);
+                break;
+            case "Psicoterapeuta":
+                agregarOpcionEspecialidad("Terapia Cognitivo-Conductual (TCC)", especialidadSelect);
+                agregarOpcionEspecialidad("Terapia Psicodinamica", especialidadSelect);
+                break;
+            case "Psicopedagogo":
+                agregarOpcionEspecialidad("Orientacion Educativa y Vocacional", especialidadSelect);
+                agregarOpcionEspecialidad("Investigacion en Psicopedagogia", especialidadSelect);
+                break;
+            case "Psiquiatra":
+                agregarOpcionEspecialidad("Psiquiatria General", especialidadSelect);
+                agregarOpcionEspecialidad("Psiquiatria Infantil y Adolescente", especialidadSelect);
+                break;
+            default:
+                break;
+        }
+    }
+
+    // Función auxiliar para agregar opciones de especialidad al combobox
+    function agregarOpcionEspecialidad(especialidad, select) {
+        var opcion = document.createElement("option");
+        opcion.text = especialidad;
+        opcion.value = especialidad;
+        select.add(opcion);
+    }
+
+    // Evento que se dispara al cambiar la selección de profesión
+    document.getElementById("profesion").addEventListener("change", actualizarEspecialidad);
+
+    // Se llama a la función al cargar la página para establecer las opciones de especialidad iniciales
+    actualizarEspecialidad();
+</script>
+
+
+
+
 
 <table class="table table-striped">
     <thead>

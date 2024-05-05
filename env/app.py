@@ -114,6 +114,33 @@ def contratar():
     cursor.close()
     return render_template("contratarPersonal.html", personales=personales, tipo_usuario=tipo_usuario)
 
+from flask import request, redirect, url_for
+
+@app.route("/agregar_empleado", methods=["POST"])
+@login_required
+def agregar_empleado():
+    codigo = request.form["codigo"]
+    nombre = request.form["nombre"]
+    apellido = request.form["apellido"]
+    correo = request.form["correo"]
+    telefono = request.form["telefono"]
+    profesion = request.form["profesion"]
+    especialidad = request.form["especialidad"]
+    sueldo = request.form["sueldo"]
+
+    # Validaciones adicionales en el lado del servidor
+    if not codigo or not nombre or not apellido or not correo or not telefono or not profesion or not especialidad or not sueldo:
+        return "Todos los campos son obligatorios", 400  # Código de estado 400 para indicar un error de solicitud
+
+    # Lógica para agregar el empleado a la base de datos
+    # Por ejemplo:
+    # cursor = db.cursor()
+    # cursor.execute("INSERT INTO personal (codigo, nombre, apellido, correo, telefono, profesion, especialidad, sueldo) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)", (codigo, nombre, apellido, correo, telefono, profesion, especialidad, sueldo))
+    # db.commit()
+    # cursor.close()
+
+    return redirect(url_for("contratar"))  # Redirigir a la página de contratar después de agregar el empleado
+
 
 @app.route("/consultas")
 @login_required
