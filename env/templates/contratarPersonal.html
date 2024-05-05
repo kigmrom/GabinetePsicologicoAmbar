@@ -1,0 +1,97 @@
+{% extends 'navi.html' %}
+
+{% block title %} Personal || Gabinete Psicológico Ámbar {% endblock %}
+{% block title2 %} Lista del personal {% endblock %}
+{% block contenido %}
+
+<!-- Botón para mostrar el formulario emergente -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Añadir Nuevo Empleado
+</button>
+
+<!-- Modal para el formulario emergente -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Añadir Nuevo Empleado</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Aquí irá tu formulario para añadir un nuevo empleado -->
+                <form id="nuevoEmpleadoForm" method="POST" action="/agregar_empleado">
+                    <!-- Campos del formulario -->
+                    <div class="form-group">
+                        <label for="nombre">Codigo:</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre">Apellido:</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre">Correo:</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre">Telefono:</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre">Profesion:</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre">Especialidad:</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre">Sueldo:</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Añadir Empleado</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Código</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Profesion</th>
+            <th scope="col">Especialidad</th>
+            <th scope="col">Sueldo</th>
+            <th>Modificar</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for personal in personales %}
+        <tr>
+            <td>{{ personal.codPersonal }}</td>
+            <td>{{ personal.nombre }}</td>
+            <td>{{ personal.apellido }}</td>
+            <td>{{ personal.correo }}</td>
+            <td>{{ personal.telefono }}</td>
+            <td>{{ personal.profesion }}</td>
+            <td>{{ personal.especialidad }}</td>
+            <td>{{ personal.sueldo }}</td>
+            <td><a href="http://">Editar</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

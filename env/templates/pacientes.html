@@ -1,0 +1,36 @@
+{% extends 'navi.html' %}
+
+{% block title %} Pacientes || Gabinete Psicológico Ámbar {% endblock %}
+{% block title2 %} Lista de Pacientes {% endblock %}
+{% block contenido %}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Código</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Fecha de Nacimiento</th>
+            <th scope="col">Género</th>
+            <th scope="col">Dirección</th>
+            <th scope="col">Teléfono</th>
+            <th scope="col">Cédula de Identidad</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for paciente in pacientes %}
+        <tr>
+            <td>{{ paciente.codPaciente }}</td>
+            <td>{{ paciente.nombre }}</td>
+            <td>{{ paciente.apellido }}</td>
+            <td>{{ paciente.fecha_nacimiento }}</td>
+            <td>{{ paciente.genero }}</td>
+            <td>{{ paciente.direccion }}</td>
+            <td>{{ paciente.telefono }}</td>
+            <td>{{ paciente.cedula_identidad }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

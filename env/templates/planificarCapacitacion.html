@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión Educativa - Sistema de Psicopedagogía</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="container-fluid py-3 bg-light">
+    <div class="row d-flex justify-content-between align-items-center">
+      <div class="col-md-4">
+        <a href="#" class="h2 text-dark text-decoration-none">Sistema de Psicopedagogía</a>
+      </div>
+      <div class="col-md-4 d-flex justify-content-end">
+        <a href="#" class="btn btn-outline-primary me-2">Cerrar Sesión</a>
+        <a href="#" class="btn btn-primary">Mi Cuenta</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2 bg-light d-flex flex-column justify-content-between sticky-top py-4">
+        <ul class="nav flex-column nav-pills">
+          <li class="nav-item">
+            <a href="#" class="nav-link active">Inicio</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Unidades Educativas</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Buscar Unidad Educativa</a>
+              <a class="dropdown-item" href="#">Crear Unidad Educativa</a>
+              <a class="dropdown-item" href="#">Lista de Unidades Educativas</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Capacitaciones</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Evaluaciones</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Configuración</a>
+          </li>
+        </ul>
+      </div>
+
+      <main class="col-md-10 p-4">
+        <h2 class="mb-4">Planificar y Registrar Capacitaciones y Evaluaciones</h2>
+        <form class="form-inline">
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="nombreUnidad" class="sr-only">Nombre de la Unidad Educativa</label>
+            <input type="text" class="form-control" id="nombreUnidad" placeholder="Nombre de la Unidad Educativa">
+          </div>
+          <button type="submit" class="btn btn-primary mb-2">Buscar</button>
+        </form>
+        <h3 class="mt-4">Lista de Unidades Educativas Registradas</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Dirección</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Colegio San Martín</td>
+              <td>Calle Principal #123</td>
+              <td>
+                <a href="#" class="btn btn-sm btn-info">Ver</a>
+                <a href="#" class="btn btn-sm btn-secondary">Editar</a>
+              </td>
+            </tr>
+            <tr>
+              <td>Instituto Libertad</td>
+              <td>Avenida Libertadores #456</td>
+              <td>
+                <a href="#" class="btn btn-sm btn-info">Ver</a>
+                <a href="#" class="btn btn-sm btn-secondary">Editar</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

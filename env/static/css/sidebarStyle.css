@@ -1,0 +1,14 @@
+/* Estilos para la clase 'activate' */
+.activate .nav-link {
+    color: #007bff; /* Cambia el color del texto */
+    font-weight: bold; /* Cambia el peso de la fuente */
+}
+
+/* Transición suave para el cambio de color de fondo */
+.nav-item {
+    transition: background-color 0.3s ease;
+}
+
+.nav-item.activate {
+    background-color: rgba(0, 123, 255, 0.1); /* Color de fondo en estado 'activate' */
+}

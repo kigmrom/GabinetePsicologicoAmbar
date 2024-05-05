@@ -1,35 +1,43 @@
+/* Estilos para el contenedor del formulario de inicio de sesión */
 .login {
-    padding: 50px;
+    padding: 20px;
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Estilos para los logos dentro del formulario */
 .login-logos {
     text-align: center;
     margin-bottom: 20px;
 }
 
+/* Estilos para las imágenes dentro de .login-logos */
 .login-logos img {
     max-width: 150px;
     height: auto;
 }
 
+/* Estilos para el título del formulario */
 .login h2 {
     text-align: center;
     margin-bottom: 20px;
 }
 
+/* Estilos para el formulario en sí */
 .login form {
     margin-top: 20px;
-    text-align: center; /* Centra el formulario horizontalmente */
+    text-align: center;
+    /* Centra el formulario horizontalmente */
 }
 
+/* Estilos para las etiquetas del formulario */
 .login label {
     display: block;
     margin-bottom: 5px;
 }
 
+/* Estilos para los campos de entrada de texto */
 .login input[type="text"],
 .login input[type="password"] {
     width: 100%;
@@ -38,12 +46,14 @@
     border-radius: 4px;
 }
 
+/* Estilos para los campos de entrada de texto enfocados */
 .login input[type="text"]:focus,
 .login input[type="password"]:focus {
     outline: none;
     box-shadow: 0 0 0 2px #007bff;
 }
 
+/* Estilos para el botón de enviar */
 .login button[type="submit"] {
     background-color: #007bff;
     color: #fff;
@@ -53,21 +63,49 @@
     cursor: pointer;
 }
 
+/* Estilos para el botón de enviar al pasar el mouse */
 .login button[type="submit"]:hover {
     background-color: #0056b3;
 }
 
+/* Estilos para el enlace de olvidar contraseña */
 .login-olvido {
     display: block;
     margin-top: 20px;
     color: #888;
-    text-align: center; /* Centra el enlace horizontalmente */
+    text-align: center;
+    /* Centra el enlace horizontalmente */
 }
 
+/* Estilos para el slogan */
 .login-slogan {
     margin-top: 20px;
     font-size: 18px;
     font-weight: bold;
-    color: #333; /* Personaliza el color del texto del slogan */
-    text-align: center; /* Centra el texto del slogan horizontalmente */
+    color: #333;
+    /* Personaliza el color del texto del slogan */
+    text-align: center;
+    /* Centra el texto del slogan horizontalmente */
+}
+
+body {
+    background-image: url('/static/images/fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Estilos para el contenedor principal */
+main {
+    padding: 20px;
+    /* Ajusta el espaciado interior según sea necesario */
+    border-radius: 10px;
+    /* Agrega esquinas redondeadas */
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Color de fondo con transparencia */
+    backdrop-filter: blur(5px);
+    /* Efecto de desenfoque en el fondo */
+    flex: 1;
 }

@@ -1,0 +1,16 @@
+{% extends 'navi.html' %}
+
+{% block title %} Bienvenido || Gabinete Psicológico Ámbar {% endblock %}
+{% block title2 %} Bienvenido {% endblock %} 
+{% block contenido %}
+               
+        <!-- Personalizar según el tipo de usuario -->
+        {% if tipo_usuario == 'admin' %}
+          <p class="alert alert-info">Eres un administrador</p>
+          <!-- Coloca aquí los elementos específicos para los administradores -->
+        {% else %}
+          <p class="alert alert-info">Eres un usuario normal</p>
+          <!-- Coloca aquí los elementos específicos para los usuarios normales -->
+        {% endif %}
+     
+{% endblock %}
