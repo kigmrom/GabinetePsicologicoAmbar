@@ -1,0 +1,9 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
+
+body {
+    margin: 0;
+    margin-top:0;
+    background-repeat:no-repeat; 
+    background-size: cover;
+    /* fill-opacity: 10; */
+}

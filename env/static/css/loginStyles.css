@@ -1,32 +1,33 @@
 /* Estilos para el contenedor del formulario de inicio de sesión */
 .login {
+    width: 200px;
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilos para los logos dentro del formulario */
+/* Estilos para los logos dentro del formulario
 .login-logos {
     text-align: center;
     margin-bottom: 20px;
-}
+} */
 
 /* Estilos para las imágenes dentro de .login-logos */
-.login-logos img {
+/* .login-logos img {
     max-width: 150px;
     height: auto;
-}
+} */
 
 /* Estilos para el título del formulario */
-.login h2 {
+/* .login h2 {
     text-align: center;
     margin-bottom: 20px;
-}
+} */
 
 /* Estilos para el formulario en sí */
 .login form {
-    margin-top: 20px;
+    margin-top: 50px;
     text-align: center;
     /* Centra el formulario horizontalmente */
 }
@@ -35,6 +36,7 @@
 .login label {
     display: block;
     margin-bottom: 5px;
+    margin: 10px;
 }
 
 /* Estilos para los campos de entrada de texto */
@@ -74,6 +76,7 @@
     margin-top: 20px;
     color: #888;
     text-align: center;
+    font-style: italic;
     /* Centra el enlace horizontalmente */
 }
 
@@ -86,20 +89,21 @@
     /* Personaliza el color del texto del slogan */
     text-align: center;
     /* Centra el texto del slogan horizontalmente */
+    font-style: italic;
 }
 
-body {
+/* body {
     background-image: url('/static/images/fondo.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-}
+} */
 
 /* Estilos para el contenedor principal */
 main {
-    padding: 20px;
+    /* padding: 20px; */
     /* Ajusta el espaciado interior según sea necesario */
     border-radius: 10px;
     /* Agrega esquinas redondeadas */
@@ -108,4 +112,14 @@ main {
     backdrop-filter: blur(5px);
     /* Efecto de desenfoque en el fondo */
     flex: 1;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 45px;
+    color: #ffff;
+    text-align: center;
 }

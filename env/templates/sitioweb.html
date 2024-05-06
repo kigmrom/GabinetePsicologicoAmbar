@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Gabinete Psicológico Ámbar</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="Sitio Web sobre un Gabinete Psicológico" name="description">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/loginStyles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/fotoAmbar.ico') }}" type="image/x-icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{{ url_for('static', filename='lib/animate/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-light sticky-top p-0 wow fadeIn" data-wow-delay="0.1s">
+        <a href="#" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <img src="{{ url_for('static',filename='img/fotoAmbar.jpg') }}" style="width: 18%; border-radius: 100px;">
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="#" class="nav-item nav-link" style="color: #ffff;">Inicio</a>
+                <a href="#" class="nav-item nav-link" style="color: #ffff;">Sobre Nosotros</a>
+                <a href="#" class="nav-item nav-link" style="color: #ffff;">Servicios</a>
+                <a href="#" class="nav-item nav-link"style="color: #ffff;">Contacto</a>
+                <a href="#" class="nav-item nav-link"style="color: #ffff;">Cita Previa</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+
+    <!-- Header Start -->
+    <div class="container-fluid header p-0 mb-5" style="background-color: #6c757d;">
+        <div class="row g-0 align-items-center flex-column-reverse flex-lg-row">
+            <div class="col-lg-6 p-5 wow fadeIn" data-wow-delay="0.1s">
+                <h1 class="display-4 text-white mb-5">El cambio comienza contigo....</h1>
+                <div class="row g-4">
+                    <div class="col-sm-4">
+                        <div class="border-start border-light ps-4">
+                            <h2 class="text-white mb-1" data-toggle="counter-up">10</h2>
+                            <p class="text-light mb-0">Profesionales Expertos</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="border-start border-light ps-4">
+                            <h2 class="text-white mb-1" data-toggle="counter-up">15</h2>
+                            <p class="text-light mb-0">Stuff</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="border-start border-light ps-4">
+                            <h2 class="text-white mb-1" data-toggle="counter-up">12345</h2>
+                            <p class="text-light mb-0">Pacientes Satisfechos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                <div class="owl-carousel header-carousel">
+                    <div class="owl-carousel-item position-relative">
+                        <img class="img-fluid" src="{{ url_for('static', filename='img/carousel-1.jpg') }}" alt="Imagen de referencia 1">
+                        <div class="owl-carousel-text">
+                            <h1 class="display-1 text-white mb-0">Psicologos</h1>
+                        </div>
+                    </div>
+                    <div class="owl-carousel-item position-relative">
+                        <img class="img-fluid" src="{{ url_for('static', filename='img/carousel-2.jpg') }}" alt="Imagen de referencia 2">
+                        <div class="owl-carousel-text">
+                            <h1 class="display-1 text-white mb-0">Psicoterapeutas</h1>
+                        </div>
+                    </div>
+                    <div class="owl-carousel-item position-relative">
+                        <img class="img-fluid" src="{{ url_for('static', filename='img/carousel-3.jpg') }}" alt="Imagen de referencia 3">
+                        <div class="owl-carousel-text">
+                            <h1 class="display-1 text-white mb-0">Psiquiatras</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- About Start -->
+    <div class="container-xxl py-5" style="background-color: #d1a886">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="d-flex flex-column">
+                        <img class="img-fluid rounded w-75 align-self-end" src="{{ url_for('static', filename='img/about-1.jpg') }}" alt="Imagen de Referencia 4">
+                        <img class="img-fluid rounded w-50 bg-white pt-3 pe-3" src="{{ url_for('static',filename='img/about-2.jpg') }}" alt="" style="margin-top: -25%;">
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                    <p class="d-inline-block border rounded-pill py-1 px-4">Sobre Nosotros</p>
+                    <h1 class="mb-4">¿Porque deberias preferirnos?</h1>
+                    <p>Un gabinete psicológico es un espacio seguro y confidencial donde puedes recibir apoyo profesional para enfrentar los desafíos de la vida. Un psicólogo te ayudará a comprender tus emociones, pensamientos y comportamientos, y te brindará las herramientas necesarias para mejorar tu bienestar mental.</p>
+                    <p class="mb-4">Un psicólogo cualificado te escuchará con atención y te ayudará a identificar las causas de tu malestar.</p>
+                    <p><i class="far fa-check-circle text-primary me-3"></i>Calidad de Atención</p>
+                    <p><i class="far fa-check-circle text-primary me-3"></i>Profesionales calificados</p>
+                    <p><i class="far fa-check-circle text-primary me-3"></i>Profesionales con autentica vocación</p>
+                    <a class="btn btn-primary rounded-pill py-3 px-5 mt-3" href="">Leer más</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+    <!-- Service Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <p class="d-inline-block border rounded-pill py-1 px-4">Services</p>
+                <h1>Soluciones para el cuidado de Salud Mental</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item bg-light rounded h-100 p-5">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
+                            <i class="fa fa-heartbeat text-primary fs-4"></i>
+                        </div>
+                        <h4 class="mb-3">Psicológia</h4>
+                        <p class="mb-4"> La terapia puede ayudarte a desarrollar habilidades para afrontar los problemas de manera más efectiva, lo que te permitirá superar los desafíos de la vida con mayor facilidad.</p>
+                        <a class="btn" href="#"><i class="fa fa-plus text-primary me-3"></i>Leer más</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item bg-light rounded h-100 p-5">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
+                            <i class="fa fa-x-ray text-primary fs-4"></i>
+                        </div>
+                        <h4 class="mb-3">Psicoterapia</h4>
+                        <p class="mb-4">Te ayuda a identificar tus fortalezas y debilidades, a construir una imagen positiva de ti mismo y a desarrollar la confianza en tus capacidades.</p>
+                        <a class="btn" href="#"><i class="fa fa-plus text-primary me-3"></i>Leer más</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item bg-light rounded h-100 p-5">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
+                            <i class="fa fa-brain text-primary fs-4"></i>
+                        </div>
+                        <h4 class="mb-3">Psiquiatría</h4>
+                        <p class="mb-4"> Los psiquiatras pueden ofrecer un tratamiento integral que incluya terapia, medicamentos y cambios en el estilo de vida. </p>
+                        <a class="btn" href="#"><i class="fa fa-plus text-primary me-3"></i>Leer más</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item bg-light rounded h-100 p-5">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
+                            <i class="fa fa-book-medical text-primary fs-4"></i>
+                        </div>
+                        <h4 class="mb-3">Psicopedagogía</h4>
+                        <p class="mb-4">Los psicopedagogos realizan evaluaciones integrales para identificar las causas de las dificultades de aprendizaje o comportamiento. Esta evaluación puede incluir entrevistas, observaciones, pruebas psicopedagógicas y otras herramientas de diagnóstico.</p>
+                        <a class="btn" href="#"><i class="fa fa-plus text-primary me-3"></i>Leer más</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item bg-light rounded h-100 p-5">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
+                            <i class="fa fa-laptop text-primary fs-4"></i>
+                        </div>
+                        <h4 class="mb-3">Capacitaciones a otras instituciones</h4>
+                        <p class="mb-4">Los psicopedagogos se encuentran en constante actualización sobre las últimas investigaciones y avances en el campo de la psicopedagogía, lo que les permite ofrecer capacitaciones con contenido de vanguardia y basado en evidencia científica.</p>
+                        <a class="btn" href="#"><i class="fa fa-plus text-primary me-3"></i>Leer más</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Service End -->
+
+
+    <!-- Feature Start -->
+    <div class="container-fluid overflow-hidden my-5 px-lg-0" style="background-color: #d1a886">
+        <div class="container feature px-lg-0">
+            <div class="row g-0 mx-lg-0">
+                <div class="col-lg-6 feature-text py-5 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="p-lg-5 ps-lg-0">
+                        <p class="d-inline-block border rounded-pill text-light py-1 px-4">Features</p>
+                        <h1 class="text-white mb-4">¿Porque deberías elegirnos?</h1>
+                        <p class="text-white mb-4 pb-2">En un gabinete psicológico, encontrarás un ambiente cálido y acogedor donde podrás expresarte libremente sin temor a ser juzgado. Un psicólogo cualificado te escuchará con atención y te ayudará a identificar las causas de tu malestar.</p>
+                        <div class="row g-4">
+                            <div class="col-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light" style="width: 55px; height: 55px;">
+                                        <i class="fa fa-user-md text-primary"></i>
+                                    </div>
+                                    <div class="ms-4">
+                                        <p class="text-white mb-2">Experiencia</p>
+                                        <h5 class="text-white mb-0">Doctores</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light" style="width: 55px; height: 55px;">
+                                        <i class="fa fa-check text-primary"></i>
+                                    </div>
+                                    <div class="ms-4">
+                                        <p class="text-white mb-2">Calidad</p>
+                                        <h5 class="text-white mb-0">Servicios</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light" style="width: 55px; height: 55px;">
+                                        <i class="fa fa-comment-medical text-primary"></i>
+                                    </div>
+                                    <div class="ms-4">
+                                        <p class="text-white mb-2">Consultas</p>
+                                        <h5 class="text-white mb-0">Satisfactorias</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-light" style="width: 55px; height: 55px;">
+                                        <i class="fa fa-headphones text-primary"></i>
+                                    </div>
+                                    <div class="ms-4">
+                                        <p class="text-white mb-2">24 horas</p>
+                                        <h5 class="text-white mb-0">Para tu comodidad</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 pe-lg-0 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
+                    <div class="position-relative h-100">
+                        <img class="position-absolute img-fluid w-100 h-100" src="{{ url_for('static',filename='img/feature.jpg') }}" style="object-fit: cover;" alt="Imagen de referencia 6">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Feature End -->
+
+
+    <!-- Team Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <p class="d-inline-block border rounded-pill py-1 px-4">Doctores</p>
+                <h1>Personal Médico de Experiencia</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item position-relative rounded overflow-hidden">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="{{ url_for('static',filename='img/team-1.jpg') }}" alt="Imagen de referencia 7">
+                        </div>
+                        <div class="team-text bg-light text-center p-4">
+                            <h5>Lic. Pamela Prado</h5>
+                            <p class="text-primary">Psicológa</p>
+                            <div class="team-social text-center">
+                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item position-relative rounded overflow-hidden">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="{{ url_for('static',filename='img/team-2.jpg') }}" alt="">
+                        </div>
+                        <div class="team-text bg-light text-center p-4">
+                            <h5>Lic. Ruben Tapia</h5>
+                            <p class="text-primary">Psicoterapeuta</p>
+                            <div class="team-social text-center">
+                                <a class="btn btn-square" href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square" href="#"><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="team-item position-relative rounded overflow-hidden">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="{{ url_for('static',filename='img/team-3.jpg') }}" alt="">
+                        </div>
+                        <div class="team-text bg-light text-center p-4">
+                            <h5>Lic. Micaela Ugarte</h5>
+                            <p class="text-primary">Psicopedagoga</p>
+                            <div class="team-social text-center">
+                                <a class="btn btn-square" href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square" href="#"><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="team-item position-relative rounded overflow-hidden">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="{{ url_for('static',filename='img/team-4.jpg') }}" alt="">
+                        </div>
+                        <div class="team-text bg-light text-center p-4">
+                            <h5>Lic Jorge Velasquez</h5>
+                            <p class="text-primary">Psiquiatra</p>
+                            <div class="team-social text-center">
+                                <a class="btn btn-square" href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square" href="#"><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+
+
+    <!-- Appointment Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <p class="d-inline-block border rounded-pill py-1 px-4">Cita Previa</p>
+                    <h1 class="mb-4">Deseas agendar una cita con nuestros Doctores.</h1>
+                    <p class="mb-4">Juntos, trabajarán en un plan de tratamiento personalizado que se adapte a tus necesidades específicas. Este plan puede incluir terapia individual, terapia de grupo, terapia familiar o técnicas de relajación, entre otras.</p>
+                    <div class="bg-light rounded d-flex align-items-center p-5 mb-4">
+                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-white" style="width: 55px; height: 55px;">
+                            <i class="fa fa-whatsapp text-primary"></i>
+                        </div>
+                        <div class="ms-4">
+                            <p class="mb-2">Escribenos</p>
+                            <h5 class="mb-0">62717606</h5>
+                        </div>
+                    </div>
+                    <div class="bg-light rounded d-flex align-items-center p-5">
+                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center rounded-circle bg-white" style="width: 55px; height: 55px;">
+                            <i class="fa fa-map text-primary"></i>
+                        </div>
+                        <div class="ms-4">
+                            <p class="mb-2">Te esperamos en...</p>
+                            <h5 class="mb-0">Av. Santa Cruz esq. América Este acera norte</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="bg-light rounded h-100 d-flex align-items-center p-5">
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-12 col-sm-6">
+                                    <input type="text" class="form-control border-0" placeholder="Your Name" style="height: 55px;">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="email" class="form-control border-0" placeholder="Your Email" style="height: 55px;">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="text" class="form-control border-0" placeholder="Your Mobile" style="height: 55px;">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <select class="form-select border-0" style="height: 55px;">
+                                        <option selected>Profesionales</option>
+                                        <option value="1">Lic. Pamela Prado</option>
+                                        <option value="2">Lic. Ruben Tapia</option>
+                                        <option value="3">Lic. Micaela Ugarte</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="date" id="date" data-target-input="nearest">
+                                        <input type="text"
+                                            class="form-control border-0 datetimepicker-input"
+                                            placeholder="Choose Date" data-target="#date" data-toggle="datetimepicker" style="height: 55px;">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="time" id="time" data-target-input="nearest">
+                                        <input type="text"
+                                            class="form-control border-0 datetimepicker-input"
+                                            placeholder="Choose Date" data-target="#time" data-toggle="datetimepicker" style="height: 55px;">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <textarea class="form-control border-0" rows="5" placeholder="Describe your problem"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Agendar cita</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Appointment End -->
+
+
+    <!-- Testimonial Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <p class="d-inline-block border rounded-pill py-1 px-4">Testimonios</p>
+                <h1>¿Qué dicen nuestros Pacientes?</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                <div class="testimonial-item text-center">
+                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="{{ url_for('static',filename='img/testimonial-1.jpg') }}" style="width: 100px; height: 100px;">
+                    <div class="testimonial-text rounded text-center p-4">
+                        <p> La terapia te ayuda a mejorar tus habilidades de comunicación y de relación, lo que puede conducir a relaciones más sanas, satisfactorias y duraderas con las personas que te rodean.</p>
+                        <h5 class="mb-1">Ing. Natalia Guzman</h5>
+                        <span class="fst-italic">Ing Industrial</span>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="{{ url_for('static',filename='img/testimonial-2.jpg') }}" style="width: 100px; height: 100px;">
+                    <div class="testimonial-text rounded text-center p-4">
+                        <p>Un psicólogo te ayuda a identificar tus valores y prioridades, y a tomar decisiones más acertadas en consonancia con ellos.</p>
+                        <h5 class="mb-1">Lic. Francisco Pinto</h5>
+                        <span class="fst-italic">Farmáceutico</span>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="{{ url_for('static',filename='img/testimonial-3.jpg') }}" style="width: 100px; height: 100px;">
+                    <div class="testimonial-text rounded text-center p-4">
+                        <p>La terapia te ayuda a establecer metas realistas y alcanzables, y a desarrollar un plan para lograrlas, aumentando tus posibilidades de éxito.</p>
+                        <h5 class="mb-1">Ing. Jorge Paz</h5>
+                        <span class="fst-italic">Ing. Comercial</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+
+
+    <!-- Footer Start -->
+    <footer class="container-fluid bg-dark text-white">
+        <div class="row" style="margin: 1%;">
+            <div class="col">
+                <p>&copy; 2024 Gabinete Psicológico</p>
+            </div>
+            <div class="col">
+                <p>Desarrollado por: <img src="{{ url_for('static', filename='img/logoDeveloper.jpg') }}" alt="Logo Empresarial" style="width: 11.5%; border-radius: 100px;"></p>
+            </div>
+            <p class="col">Redes sociales: </p>
+            <div class="col">
+                <div class="row">
+                    <a href="tel:+59162717606"><i class="col bi bi-telephone" style="color: #ffff;"></i></a>
+                    <a href="https://wa.me/59162717606"><i class="col bi bi-whatsapp" style="color: #ffff;"></i></a>
+                    <!-- <a href="https://wa.me/59162717606" class="col text-white"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+                        <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/></svg>
+                    </a> -->
+                    <a href="https://www.facebook.com/"><i class="col bi bi-facebook" style="color: #ffff;"></i></a>
+                    <a href="https://www.instagram.com/"><i class="col bi bi-instagram" style="color: #ffff;"></i></a>
+                    <a href="https://www.tiktok.com/es/"><i class="col bi bi-tiktok" style="color: #ffff;"></i></a>
+                </div>
+            </div>
+            <div class="col">
+                <p>Sitio Web oficial: <a href="/sitio_oficial"><i class="bi bi-house" style="color: #ffff;"></i></a></p>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

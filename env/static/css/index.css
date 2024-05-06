@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    padding: 0;
+    max-width: auto;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    /* line-height: 1.5; */
+    /* color: #333; */
+    /* background-color: #fff; */
+    
+}
+/* main {
+    height: 200px;
+    margin: 20px;
+} */
+/* .nave{
+    height: 120px;
+} */
+/* .img{
+    margin: 9px;
+    padding: 3px;
+    width: 150px;
+    height: 150px;
+} */
+
+/* .foto{
+    border-radius: 80%;
+} */
+
+footer {
+    /* Add your styles here to normalize the footer */
+    position: fixed; 
+    bottom: 0; 
+    left: 0; 
+    width: 100%;
+}
