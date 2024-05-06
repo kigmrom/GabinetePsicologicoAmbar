@@ -4,9 +4,9 @@ import mysql.connector
 
 # Configurar la conexión a la base de datos
 db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="",
+    host="ambar-base-datos.mysql.database.azure.com",
+    user="renmy",
+    password="sakurA1204@",
     database="gabineteambar"
 )
 app = Flask(__name__)
