@@ -3,14 +3,6 @@
 {% block title %} Historial|| Gabinete Psicológico Ámbar {% endblock %}
 {% block title2 %} Historial de Pacientes {% endblock %}
 {% block contenido %}
-    <h2 class="mb-4">Buscar Paciente</h2>
-    <form class="form-inline">
-        <div class="form-group mx-sm-3 mb-2">
-            <label for="nombrePaciente" class="sr-only">Nombre del Paciente</label>
-            <input type="text" class="form-control" id="nombrePaciente" placeholder="Nombre o Apellido">
-        </div>
-        <button type="submit" class="btn btn-primary mb-2">Buscar</button>
-    </form>
     {% if pacientes %}
         <table class="table table-striped">
             <thead>

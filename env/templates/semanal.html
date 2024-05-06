@@ -1,0 +1,63 @@
+{% extends 'navi.html' %}
+{% block title %} Asignar Tareas || Gabinete Psicológico Ámbar {% endblock %}
+{% block title2 %} Planificacion diaria {% endblock %}
+{% block contenido %}
+
+<!-- Botón para mostrar el formulario emergente -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Actualizar día
+</button>
+
+<hr>
+<!-- Modal para el formulario emergente -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
+        <div class="modal-content rounded-0">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Actualizar Actividad</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Aquí irá tu formulario para añadir un nuevo empleado -->
+                <form id="nuevoEmpleadoForm" method="POST" action="/editar_dia">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="asignar_tareas">Tareas:</label>
+                                <input type="text" class="form-control" id="asignar_tareas" name="asignar_tareas">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="planificar_semana">Plan:</label>
+                                <input type="text" class="form-control" id="planificar_semana" name="planificar_semana">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Editar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% for admini in administrador %}
+<div class="row mb-3">
+    <div class="col-md-6">
+        <h2>Tarea: </h2>
+        <div class="bg-success p-3 rounded">
+            <h2>{{ admini.asignar_tareas }}</h2>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h2>Plan diario:</h2>
+        <div class="bg-primary text-white p-3 rounded">
+            <h2>{{ admini.planificar_semana }}</h2>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

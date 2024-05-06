@@ -65,7 +65,10 @@ def logout():
 @login_required
 def welcome():
     tipo_usuario = session.get('tipo_usuario')
-    return render_template("welcome.html", tipo_usuario=tipo_usuario)
+    cursor = db.cursor(dictionary=True)
+    cursor.execute("SELECT asignar_tareas, planificar_semana FROM admingeneral")
+    administrador = cursor.fetchall()
+    return render_template("welcome.html", administrador= administrador, tipo_usuario=tipo_usuario)
 
 @app.route("/historial")
 @login_required
@@ -141,8 +144,6 @@ def contratar():
     cursor.close()
     return render_template("contratarPersonal.html", personales=personales, tipo_usuario=tipo_usuario)
 
-from flask import request, redirect, url_for
-
 @app.route("/agregar_empleado", methods=["POST"])
 @login_required
 def agregar_empleado():
@@ -181,3 +182,46 @@ def capacitacion():
 @app.route("/gestioAdmin")
 def gestioAdmin():
     return render_template("gestionAdministrativa.html")
+
+@app.route("/semanal")
+@login_required
+def semanal():
+    tipo_usuario = session.get('tipo_usuario')
+    cursor = db.cursor(dictionary=True)
+    cursor.execute("SELECT asignar_tareas, planificar_semana FROM admingeneral")
+    administrador = cursor.fetchall()
+    return render_template("semanal.html", administrador= administrador, tipo_usuario=tipo_usuario)
+
+@app.route('/editar_dia', methods=['POST'])
+def editar_dia():
+    if request.method == 'POST':
+        asignar_tareas = request.form['asignar_tareas']
+        planificar_semana = request.form['planificar_semana']
+
+        # Crear un cursor para ejecutar consultas
+        cursor = db.cursor()
+
+        # Consulta para actualizar la base de datos
+        consulta = "UPDATE admingeneral SET asignar_tareas = %s, planificar_semana = %s WHERE idAdminSistema = %s"
+
+
+        datos = (asignar_tareas, planificar_semana, 1)  # Suponiendo que el ID del registro que deseas modificar es 1
+
+        # Ejecutar la consulta
+        cursor.execute(consulta, datos)
+
+        # Confirmar los cambios
+        db.commit()
+
+        # Redireccionar a la página donde se muestra la lista de tareas actualizada
+        return redirect(url_for('semanal'))
+
+@app.route("/citas")
+@login_required
+def citas():
+    tipo_usuario = session.get('tipo_usuario')
+    cursor = db.cursor(dictionary=True)  # Usar dictionary=True para obtener un diccionario por fila
+    cursor.execute("SELECT * FROM citasmedicas")
+    citas = cursor.fetchall()
+    cursor.close()
+    return render_template("agendarCitas.html",citas=citas, tipo_usuario = tipo_usuario)
