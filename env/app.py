@@ -220,8 +220,41 @@ def editar_dia():
 @login_required
 def citas():
     tipo_usuario = session.get('tipo_usuario')
+    
+    # Consulta para obtener todas las citas médicas
     cursor = db.cursor(dictionary=True)  # Usar dictionary=True para obtener un diccionario por fila
     cursor.execute("SELECT * FROM citasmedicas")
     citas = cursor.fetchall()
+    
+    # Consulta para obtener todos los pacientes
+    cursor.execute("SELECT * FROM paciente")
+    pacientes = cursor.fetchall()
+    
     cursor.close()
-    return render_template("agendarCitas.html",citas=citas, tipo_usuario = tipo_usuario)
+    
+    return render_template("agendarCitas.html", citas=citas, pacientes=pacientes, tipo_usuario=tipo_usuario)
+
+@app.route("/agregar_cita", methods=["POST"])
+@login_required
+def agregar_cita():
+    codigo = request.form["codigo"]
+    fecha = request.form["fecha"]
+    hora = request.form["hora"]
+    descripcion = request.form["descripcion"]
+    tipo_atencion = request.form["tipo_atencion"]
+    comentarios = request.form["comentarios"]
+    precio = request.form["precio"]
+    paciente = request.form["paciente"]
+    estado = request.form["estado"]
+
+    # Validaciones adicionales en el lado del servidor
+    if not codigo or not fecha or not hora or not descripcion or not tipo_atencion or not comentarios or not precio or not paciente or not estado:
+        return "Todos los campos son obligatorios", 400  # Código de estado 400 para indicar un error de solicitud
+
+    # Lógica para agregar la cita a la base de datos
+    cursor = db.cursor()
+    cursor.execute("INSERT INTO citasmedicas (codCitasMedicas, fecha, hora, descripcion, tipoAtencion, comentarios, precio, paciente_idpaciente, estado) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)", (codigo, fecha, hora, descripcion, tipo_atencion, comentarios, precio, paciente, estado))
+    db.commit()
+    cursor.close()
+
+    return redirect(url_for("citas"))

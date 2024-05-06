@@ -6,7 +6,7 @@
 
 <!-- Botón para mostrar el formulario emergente -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Agendar Nueva Cita
+    Agendar Cita
 </button>
 
 <hr>
@@ -15,79 +15,90 @@
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
         <div class="modal-content rounded-0">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Añadir Nuevo Paciente</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Agendar Cita</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <!-- Aquí irá tu formulario para añadir un nuevo empleado -->
-                <form id="nuevoEmpleadoForm" method="POST" action="/agregar_paciente">
+                <!-- Formulario para añadir una nueva cita -->
+                <form id="nuevaCitaForm" method="POST" action="/agregar_cita">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="codigo">Codigo:</label>
+                                <label for="codigo">Código:</label>
                                 <input type="text" class="form-control" id="codigo" name="codigo">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="nombre">Nombre:</label>
-                                <input type="text" class="form-control" id="nombre" name="nombre">
+                                <label for="fecha">Fecha:</label>
+                                <input type="date" class="form-control" id="fecha" name="fecha">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="apellido">Apellidos:</label>
-                                <input type="text" class="form-control" id="apellido" name="apellido">
+                                <label for="hora">Hora:</label>
+                                <input type="time" class="form-control" id="hora" name="hora">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="descripcion">Descripción:</label>
+                                <input type="text" class="form-control" id="descripcion" name="descripcion">
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="direccion">Dirección:</label>
-                                <input type="text" class="form-control" id="direccion" name="direccion">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="telefono">Telefono:</label>
-                                <input type="text" class="form-control" id="telefono" name="telefono">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="genero">Genero:</label>
-                                <select class="form-control" id="genero" name="genero">
-                                    <option value="Femenino">Femenino</option>
-                                    <option value="Masculino">Masculino</option>
-                                    <option value="Otro">Otro</option>
+                                <label for="tipo_atencion">Tipo de Atención:</label>
+                                <select class="form-control" id="tipo_atencion" name="tipo_atencion">
+                                    <option value="Presencial">Presencial</option>
+                                    <option value="Virtual">Virtual</option>
                                 </select>
                             </div>
                         </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="comentarios">Comentarios:</label>
+                                <input type="text" class="form-control" id="comentarios" name="comentarios">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="precio">Precio:</label>
+                                <input type="number" class="form-control" id="precio" name="precio">
+                            </div>
+                        </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-                                <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento">
+                                <label for="paciente">Seleccionar paciente:</label>
+                                <select class="form-control" id="paciente" name="paciente">
+                                    {% for paciente in pacientes %}
+                                        <option value="{{ paciente.idpaciente }}">{{ paciente.nombre }}</option>
+                                    {% endfor %}
+                                </select>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="cedula_identidad">Cedula de Identidad:</label>
-                                <input type="text" class="form-control" id="cedula_identidad" name="cedula_identidad">
-                            </div>
+                        <div class="col-md-6">
+                            <!-- Campo de estado oculto -->
+                            <input type="hidden" name="estado" value="Activo">
                         </div>
                     </div>
-                    
-                    <button type="submit" class="btn btn-primary">Añadir Paciente</button>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary btn-block">Agendar Cita</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
 
 <table class="table table-striped">
     <thead>
@@ -114,12 +125,22 @@
             <td>{{ cita.comentarios }}</td>
             <td>{{ cita.precio }}</td>
             <td>{{ cita.estado }}</td>
-            <td>{{ cita.paciente_idpaciente}}</td>
+            <td>{{ cita.paciente_idpaciente }}</td>
             <td><a class="btn btn-primary" href="http://">Editar</a></td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
 
+<script>
+    // Obtener el campo de hora
+    var horaInput = document.getElementById("hora_actual");
+
+    // Obtener la hora actual en formato HH:MM
+    var horaActual = new Date().toLocaleTimeString('en-US', {hour12: false});
+
+    // Establecer la hora actual como el valor del campo de hora
+    horaInput.value = horaActual;
+</script>
 
 {% endblock %}

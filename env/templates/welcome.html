@@ -6,43 +6,47 @@
                
         <!-- Personalizar según el tipo de usuario -->
         {% if tipo_usuario == 'admin' %}
-          <p class="alert alert-info">Eres un administrador</p>
+          <div class="alert alert-info" role="alert">
+            <strong>¡Bienvenido Administrador!</strong> Disfruta de todas las herramientas disponibles para gestionar el gabinete.
+          </div>
           <!-- Coloca aquí los elementos específicos para los administradores -->
           {% for admini in administrador %}
-<div class="row mb-3">
-    <div class="col-md-6">
-        <h2>Tarea: </h2>
-        <div class="bg-success p-3 rounded">
-            <h2>{{ admini.asignar_tareas }}</h2>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <h2>Plan diario:</h2>
-        <div class="bg-primary text-white p-3 rounded">
-            <h2>{{ admini.planificar_semana }}</h2>
-        </div>
-    </div>
-</div>
-{% endfor %}
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <h2>Tarea: </h2>
+                    <div class="bg-success p-3 rounded">
+                        <h2>{{ admini.asignar_tareas }}</h2>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h2>Plan diario:</h2>
+                    <div class="bg-primary text-white p-3 rounded">
+                        <h2>{{ admini.planificar_semana }}</h2>
+                    </div>
+                </div>
+            </div>
+          {% endfor %}
         {% else %}
-          <p class="alert alert-info">Eres un usuario normal</p>
-          <!-- Coloca aquí los elementos específicos para los usuarios normales -->
+          <div class="alert alert-info" role="alert">
+            <strong>¡Bienvenido Empleado!</strong> Esperamos que tu experiencia en el gabinete sea positiva y productiva.
+          </div>
+          <!-- Coloca aquí los elementos específicos para los empleados -->
           {% for admini in administrador %}
-<div class="row mb-3">
-    <div class="col-md-6">
-        <h2>Tarea del día de hoy: </h2>
-        <div class="bg-success p-3 rounded">
-            <h2>{{ admini.asignar_tareas }}</h2>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <h2>Plan diario:</h2>
-        <div class="bg-primary text-white p-3 rounded">
-            <h2>{{ admini.planificar_semana }}</h2>
-        </div>
-    </div>
-</div>
-{% endfor %}
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <h2>Tarea del día de hoy: </h2>
+                    <div class="bg-success p-3 rounded">
+                        <h2>{{ admini.asignar_tareas }}</h2>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h2>Plan diario:</h2>
+                    <div class="bg-primary text-white p-3 rounded">
+                        <h2>{{ admini.planificar_semana }}</h2>
+                    </div>
+                </div>
+            </div>
+          {% endfor %}
         {% endif %}
      
 {% endblock %}
